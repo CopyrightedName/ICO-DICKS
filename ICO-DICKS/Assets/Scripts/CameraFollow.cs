@@ -12,7 +12,6 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        target = FindObjectOfType<PlayerController1>().transform;
 
         Vector3 desiredPosition = target.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);

@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionSphere: {fileID: 1035679886792166, guid: 34b52a41cabf59145ac4938a71d076bd,
     type: 2}
+  cam: {fileID: 1043339765065686, guid: 091d838c64e1d20458aa598a22ca7854, type: 2}
 --- !u!114 &114378544951598814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 3
-  m_SendInterval: 0.03846154
+  m_SendInterval: 0.033333335
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0

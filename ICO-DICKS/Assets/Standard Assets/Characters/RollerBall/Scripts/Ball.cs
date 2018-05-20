@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Networking;
 
 namespace UnityStandardAssets.Vehicles.Ball
 {
-    public class Ball : MonoBehaviour
+    public class Ball : NetworkBehaviour
     {
         [SerializeField] private float m_MovePower = 5; // The force added to the ball to move it.
         [SerializeField] private bool m_UseTorque = true; // Whether or not to use torque to move the ball.
@@ -18,6 +19,10 @@ namespace UnityStandardAssets.Vehicles.Ball
 
         private void Start()
         {
+            if(isLocalPlayer == false)
+            {
+                return;
+            }
             m_Rigidbody = GetComponent<Rigidbody>();
             // Set the maximum angular velocity.
             GetComponent<Rigidbody>().maxAngularVelocity = m_MaxAngularVelocity;
@@ -26,6 +31,11 @@ namespace UnityStandardAssets.Vehicles.Ball
 
         public void Move(Vector3 moveDirection, bool jump)
         {
+            if (isLocalPlayer == false)
+            {
+                return;
+            }
+
             // If using torque to rotate the ball...
             if (m_UseTorque)
             {
