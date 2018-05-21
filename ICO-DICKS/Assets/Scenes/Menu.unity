@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2106,15 +2106,15 @@ RectTransform:
   m_GameObject: {fileID: 1001591562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.662666, y: 1.4132559, z: 0.9500949}
+  m_LocalScale: {x: 1.8289324, y: 1.4132559, z: 0.9500949}
   m_Children: []
   m_Father: {fileID: 1618448427}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.799988, y: -0.71369934}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 36.5, y: -0.71369934}
+  m_SizeDelta: {x: 164.38, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1001591564
 MonoBehaviour:
@@ -2135,7 +2135,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8b0af2fa6d184c942a3e97a5959aa59a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4a6ed7f170d3a0d40adde8224a167537, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
