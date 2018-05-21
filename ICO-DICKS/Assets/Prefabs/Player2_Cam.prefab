@@ -9,35 +9,35 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1043339765065686}
+  m_RootGameObject: {fileID: 1308041087627694}
   m_IsPrefabParent: 1
---- !u!1 &1043339765065686
+--- !u!1 &1308041087627694
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4260207834746556}
-  - component: {fileID: 20829372023930678}
-  - component: {fileID: 124678460844547642}
-  - component: {fileID: 81334013736623220}
-  - component: {fileID: 114265538574471994}
-  - component: {fileID: 114993798872249316}
-  - component: {fileID: 114500121649983722}
+  - component: {fileID: 4763623183461256}
+  - component: {fileID: 20277413233959322}
+  - component: {fileID: 124556204919956534}
+  - component: {fileID: 81218592410583048}
+  - component: {fileID: 114270402385671328}
+  - component: {fileID: 114382831406769036}
+  - component: {fileID: 114364624881901296}
   m_Layer: 0
-  m_Name: Player1_Cam
+  m_Name: Player2_Cam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4260207834746556
+--- !u!4 &4763623183461256
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1043339765065686}
+  m_GameObject: {fileID: 1308041087627694}
   m_LocalRotation: {x: 0.3532858, y: -0, z: -0, w: 0.93551546}
   m_LocalPosition: {x: 0, y: 9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -45,12 +45,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 41.377003, y: 0, z: 0}
---- !u!20 &20829372023930678
+--- !u!20 &20277413233959322
 Camera:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1043339765065686}
+  m_GameObject: {fileID: 1308041087627694}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -81,33 +81,33 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &81334013736623220
+--- !u!81 &81218592410583048
 AudioListener:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1043339765065686}
+  m_GameObject: {fileID: 1308041087627694}
   m_Enabled: 1
---- !u!114 &114265538574471994
+--- !u!114 &114270402385671328
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1043339765065686}
+  m_GameObject: {fileID: 1308041087627694}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c595b3af076fc0b4f9b678034de59a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4254113206086498, guid: da2ef2233e6952947895f102290fcd9e, type: 2}
+  target: {fileID: 4663455927347502, guid: 72f23c6e60164c64da1a70a034a11db7, type: 2}
   smoothSpeed: 0.125
   offset: {x: 0, y: 11, z: -10}
---- !u!114 &114500121649983722
+--- !u!114 &114364624881901296
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1043339765065686}
+  m_GameObject: {fileID: 1308041087627694}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cde8c0fd649d9b46bb403ba5e157391, type: 3}
@@ -116,22 +116,22 @@ MonoBehaviour:
   shader: {fileID: 4800000, guid: b61f0d8d8244b4b28aa66b0c8cb46a8d, type: 3}
   converted3DLut: {fileID: 0}
   basedOnTempTex: Assets/Cinema Suite/Cinema Themes/LUTs/Intensity3D16.png
---- !u!114 &114993798872249316
+--- !u!114 &114382831406769036
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1043339765065686}
+  m_GameObject: {fileID: 1308041087627694}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: d5fa45f5bd5c7244785eee4343900484, type: 2}
---- !u!124 &124678460844547642
+--- !u!124 &124556204919956534
 Behaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1043339765065686}
+  m_GameObject: {fileID: 1308041087627694}
   m_Enabled: 1
