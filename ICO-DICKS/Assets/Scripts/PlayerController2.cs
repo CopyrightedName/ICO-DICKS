@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController2 : MonoBehaviour {
 
     public GameObject explosionSphere;
+    public GameObject bomb;
+
 
     public float MaxHP;
     float HP;
@@ -16,6 +18,8 @@ public class PlayerController2 : MonoBehaviour {
     void Update() {
 
         SuicideBomb();
+        DropBomb();
+
 
         if (HP <= 0)
         {
@@ -28,6 +32,14 @@ public class PlayerController2 : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Keypad0))
         {
             StartCoroutine(explode());
+        }
+    }
+
+    public void DropBomb()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            StartCoroutine(Bomb());
         }
     }
 
@@ -52,5 +64,12 @@ public class PlayerController2 : MonoBehaviour {
     {
         Destroy(gameObject);
     }
-       
+
+    IEnumerator Bomb()
+    {
+        GameObject BombInstance;
+        BombInstance = Instantiate(bomb, transform.position + new Vector3(0, 1, 0), transform.rotation);
+        yield return new WaitForSeconds(1);
+        Instantiate(explosionSphere, BombInstance.transform.position, BombInstance.transform.rotation);
+    }
 }
