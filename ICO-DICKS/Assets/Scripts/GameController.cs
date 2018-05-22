@@ -29,7 +29,6 @@ public class GameController : MonoBehaviour {
                 isInstantiated = true;
                 P2Canvas.SetActive(false);
                 P1Canvas.SetActive(false);
-                isTied = true;
             }
         }
 
@@ -44,6 +43,7 @@ public class GameController : MonoBehaviour {
 
         if (!FindObjectOfType<PlayerController2>())
         {
+                isTied = true;
             if (isTied == false)
             {
                 gameCanvas.SetActive(false);
