@@ -6,6 +6,8 @@ namespace UnityStandardAssets.Vehicles.Ball
 {
     public class Ball : MonoBehaviour
     {
+        bool canMove;
+
         [SerializeField] private float m_MovePower = 5; // The force added to the ball to move it.
         [SerializeField] private bool m_UseTorque = true; // Whether or not to use torque to move the ball.
         [SerializeField] private float m_MaxAngularVelocity = 25; // The maximum velocity the ball can rotate at.
@@ -27,6 +29,7 @@ namespace UnityStandardAssets.Vehicles.Ball
 
         public void Move(Vector3 moveDirection, bool jump)
         {
+        
             
 
             // If using torque to rotate the ball...

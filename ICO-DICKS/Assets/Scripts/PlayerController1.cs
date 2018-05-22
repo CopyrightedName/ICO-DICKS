@@ -10,6 +10,9 @@ public class PlayerController1 : MonoBehaviour {
     public float MaxHP;
     float HP;
 
+    bool canMove;
+    public Rigidbody rg;
+
     void Start() {
         HP = MaxHP;
     }
@@ -23,11 +26,20 @@ public class PlayerController1 : MonoBehaviour {
             Die();
         }
 
+        if (FindObjectOfType<GameController>().isPaused)
+        {
+            rg.isKinematic = true;
+        }
+        else if(FindObjectOfType<GameController>().isPaused == false)
+        {
+            rg.isKinematic = false;
+        }
+
     }
 
     public void SuicideBomb()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && canMove)
         {
             StartCoroutine(explode());
         }
@@ -35,7 +47,7 @@ public class PlayerController1 : MonoBehaviour {
 
     public void DropBomb()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && canMove)
         {
             StartCoroutine(Bomb());
         }

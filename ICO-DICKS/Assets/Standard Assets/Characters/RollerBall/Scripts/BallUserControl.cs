@@ -5,7 +5,11 @@ using UnityStandardAssets.CrossPlatformInput;
 namespace UnityStandardAssets.Vehicles.Ball
 {
     public class BallUserControl : MonoBehaviour
+
     {
+
+        bool canMove;
+
         private Ball ball; // Reference to the ball controller.
 
         private Vector3 move;
@@ -38,6 +42,9 @@ namespace UnityStandardAssets.Vehicles.Ball
 
         private void Update()
         {
+            
+
+
             // Get the axis and jump input.
 
             float h = CrossPlatformInputManager.GetAxis("Horizontal");

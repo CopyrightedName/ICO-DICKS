@@ -10,6 +10,7 @@ public class MenuController : MonoBehaviour {
     public GameObject button2Players;
     public GameObject buttonBack;
 
+    public GameObject maps;
 	
 	void Start () {
 		
@@ -34,6 +35,7 @@ public class MenuController : MonoBehaviour {
         button1Player.SetActive(false);
         button2Players.SetActive(false);
         buttonBack.SetActive(false);
+        maps.SetActive(false);
     }
 
     public void OnePlayer()
@@ -42,6 +44,34 @@ public class MenuController : MonoBehaviour {
     }
 
     public void TwoPlayers()
+    {
+        buttonPlay.SetActive(false);
+        button1Player.SetActive(false);
+        button2Players.SetActive(false);
+
+        buttonBack.SetActive(true);
+
+        maps.SetActive(true);
+    }
+
+
+
+    public void Map1()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void Map2()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void Map3()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void Map4()
     {
         SceneManager.LoadScene(2);
     }
