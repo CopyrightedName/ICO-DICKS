@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController1 : MonoBehaviour {
+public class PlayerController2 : MonoBehaviour {
 
     public GameObject explosionSphere;
 
@@ -11,21 +11,21 @@ public class PlayerController1 : MonoBehaviour {
 
     void Start() {
         HP = MaxHP;
+
     }
     void Update() {
 
         SuicideBomb();
 
-        if(HP <= 0)
+        if (HP <= 0)
         {
             Die();
         }
-
     }
 
     public void SuicideBomb()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Keypad0))
         {
             StartCoroutine(explode());
         }
@@ -52,5 +52,5 @@ public class PlayerController1 : MonoBehaviour {
     {
         Destroy(gameObject);
     }
-
+       
 }
