@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -9,10 +10,16 @@ public class GameController : MonoBehaviour {
     bool isInstantiated;
     bool isTied;
     public bool isPaused;
+    bool hasCounted;
 
-    int wins1;
-    int wins2;
+    public int wins1;
+    public int wins2;
 
+    public Text winsText1;
+    public Text winsText2;
+
+    public GameObject player1;
+    public GameObject player2;
 
     public GameObject gameCanvas;
     public GameObject endGameCanvas;
@@ -26,42 +33,23 @@ public class GameController : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (isInstantiated == false)
-        {
-            if (!FindObjectOfType<PlayerController1>() && !FindObjectOfType<PlayerController2>())
-            {
-                isTied = true;
-                gameCanvas.SetActive(false);
-                endGameCanvas.SetActive(true);
-                Instantiate(EndCam, transform.position, Quaternion.Euler(90, 0, 0));
-                isInstantiated = true;
-                P2Canvas.SetActive(false);
-                P1Canvas.SetActive(false);
-            }
+        winsText1.text = "Player1:" + wins1.ToString();
+        winsText2.text = "Player2:" + wins2.ToString();
 
-            Pause();
+        Pause();
+
+        if(wins1 == 5)
+        {
+            gameCanvas.SetActive(false);
+            P1Canvas.SetActive(true);
         }
 
-        if (!FindObjectOfType<PlayerController1>() && isTied == false)
+        if (wins2 == 5)
         {
-            if (isTied == false)
-            {
-                gameCanvas.SetActive(false);
-                P2Canvas.SetActive(true);
-                wins1 = wins1 + 1;
-            }
+            gameCanvas.SetActive(false);
+            P2Canvas.SetActive(true);
         }
 
-        if (!FindObjectOfType<PlayerController2>() && isTied == false)
-        {
-            if (isTied == false)
-            {
-                gameCanvas.SetActive(false);
-                P1Canvas.SetActive(true);
-
-                wins2 = wins2 + 1;
-            }
-        }
     }
 
     public void MainMenu()

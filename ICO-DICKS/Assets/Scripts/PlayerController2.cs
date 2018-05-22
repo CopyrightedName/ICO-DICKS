@@ -14,10 +14,18 @@ public class PlayerController2 : MonoBehaviour {
     bool canMove;
     public Rigidbody rg;
 
+    public GameObject player;
+    public GameObject model;
+
+    bool hasCounted;
+
+    bool canBomb;
+
 
     void Start() {
         HP = MaxHP;
-
+        canMove = true;
+        canBomb = true;
     }
     void Update() {
 
@@ -27,7 +35,7 @@ public class PlayerController2 : MonoBehaviour {
 
         if (HP <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
 
         if (FindObjectOfType<GameController>().isPaused)
@@ -43,7 +51,7 @@ public class PlayerController2 : MonoBehaviour {
 
     public void SuicideBomb()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad0) && canMove)
+        if (Input.GetKeyDown(KeyCode.Keypad0) && canMove && canBomb)
         {
             StartCoroutine(explode());
         }
@@ -51,7 +59,7 @@ public class PlayerController2 : MonoBehaviour {
 
     public void DropBomb()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad1) && canMove)
+        if (Input.GetKeyDown(KeyCode.Keypad1) && canMove && canBomb)
         {
             StartCoroutine(Bomb());
         }
@@ -74,9 +82,26 @@ public class PlayerController2 : MonoBehaviour {
         }
     }
 
-    void Die()
+    IEnumerator Die()
     {
-        Destroy(gameObject);
+        if (hasCounted == false)
+        {
+            FindObjectOfType<GameController>().wins1++;
+            hasCounted = true;
+        }
+        canBomb = false;
+        rg.isKinematic = true;
+        canMove = false;
+        model.SetActive(false);
+        yield return new WaitForSeconds(2);
+        transform.position = new Vector3(5.09f, 0.5f, -5.56f);
+        HP = MaxHP;
+        yield return new WaitForSeconds(1);
+        model.SetActive(true);
+        canMove = true;
+        rg.isKinematic = false;
+        hasCounted = false;
+        canBomb = true;
     }
 
     IEnumerator Bomb()
