@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour {
 
     public GameObject EndCam;
     bool isInstantiated;
+    bool isTied;
 
     public GameObject gameCanvas;
     public GameObject endGameCanvas;
@@ -26,19 +27,28 @@ public class GameController : MonoBehaviour {
                 endGameCanvas.SetActive(true);
                 Instantiate(EndCam, transform.position, Quaternion.Euler(90, 0, 0));
                 isInstantiated = true;
+                P2Canvas.SetActive(false);
+                P1Canvas.SetActive(false);
+                isTied = true;
             }
         }
 
         if (!FindObjectOfType<PlayerController1>())
         {
-            gameCanvas.SetActive(false);
-            P2Canvas.SetActive(true);
+            if (isTied == false)
+            {
+                gameCanvas.SetActive(false);
+                P2Canvas.SetActive(true);
+            }
         }
 
         if (!FindObjectOfType<PlayerController2>())
         {
-            gameCanvas.SetActive(false);
-            P1Canvas.SetActive(true);
+            if (isTied == false)
+            {
+                gameCanvas.SetActive(false);
+                P1Canvas.SetActive(true);
+            }
         }
     }
 
