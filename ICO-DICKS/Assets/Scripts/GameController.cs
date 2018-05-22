@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour {
 
     public GameObject gameCanvas;
     public GameObject endGameCanvas;
+    public GameObject P1Canvas;
+    public GameObject P2Canvas;
 
 	void Start () {
 		
@@ -26,7 +28,19 @@ public class GameController : MonoBehaviour {
                 isInstantiated = true;
             }
         }
-	}
+
+        if (!FindObjectOfType<PlayerController1>())
+        {
+            gameCanvas.SetActive(false);
+            P2Canvas.SetActive(true);
+        }
+
+        if (!FindObjectOfType<PlayerController2>())
+        {
+            gameCanvas.SetActive(false);
+            P1Canvas.SetActive(true);
+        }
+    }
 
     public void MainMenu()
     {
