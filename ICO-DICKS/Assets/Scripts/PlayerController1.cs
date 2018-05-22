@@ -65,10 +65,12 @@ public class PlayerController1 : MonoBehaviour {
 
     IEnumerator Bomb()
     {
+        GameObject SphereInstance;
         GameObject BombInstance;
         BombInstance = Instantiate(bomb, transform.position + new Vector3(0, 1, 0), transform.rotation);
         yield return new WaitForSeconds(1);
-        Instantiate(explosionSphere, BombInstance.transform.position, BombInstance.transform.rotation);
+        SphereInstance = Instantiate(explosionSphere, BombInstance.transform.position, BombInstance.transform.rotation);
+        SphereInstance.transform.SetParent(null);
     }
 
 }
