@@ -43,6 +43,6 @@ public class MenuController : MonoBehaviour {
 
     public void TwoPlayers()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }
