@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 0cc0b9577079b5a4fb94972daedf7363
   - enabled: 1
-    path: Assets/Scenes/Cyan-Utopia.unity
-    guid: 2766e3c17d9fd3f40a20a65ef921c9d5
-  - enabled: 1
-    path: Assets/Scenes/Kaos's scene.unity
+    path: Assets/Scenes/Underwater-Ruins.unity
     guid: 0639a9e210867c248bd5dbcfc3e26bad
   m_configObjects: {}

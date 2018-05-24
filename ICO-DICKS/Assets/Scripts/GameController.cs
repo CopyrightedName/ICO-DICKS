@@ -33,8 +33,8 @@ public class GameController : MonoBehaviour {
 	}
 	
 	void Update () {
-        winsText1.text = "Player1:" + wins1.ToString();
-        winsText2.text = "Player2:" + wins2.ToString();
+        winsText1.text = "PLAYER 1: " + wins1.ToString();
+        winsText2.text = "PLAYER 2: " + wins2.ToString();
 
         Pause();
 

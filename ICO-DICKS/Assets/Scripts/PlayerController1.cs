@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController1 : MonoBehaviour {
 
@@ -18,14 +19,22 @@ public class PlayerController1 : MonoBehaviour {
 
     bool hasCounted;
     bool canBomb;
+    bool candrop;
+
+    public int bombCount = 5;
+
+    public Text bombText;
 
 
     void Start() {
         HP = MaxHP;
         canMove = true;
         canBomb = true;
+        candrop = true;
     }
     void Update() {
+
+        bombText.text = "BOMBS: " + bombCount.ToString();
 
         SuicideBomb();
         DropBomb();
@@ -44,6 +53,16 @@ public class PlayerController1 : MonoBehaviour {
             rg.isKinematic = false;
         }
 
+        if(bombCount <= 0)
+        {
+            candrop = false;
+        }
+
+        if (bombCount >= 0)
+        {
+            candrop = true;
+        }
+
     }
 
     public void SuicideBomb()
@@ -51,14 +70,16 @@ public class PlayerController1 : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E) && canMove && canBomb)
         {
             StartCoroutine(explode());
+            canBomb = false;
         }
     }
 
     public void DropBomb()
     {
-        if (Input.GetKeyDown(KeyCode.F) && canMove && canBomb)
+        if (Input.GetKeyDown(KeyCode.F) && canMove && candrop)
         {
             StartCoroutine(Bomb());
+            bombCount = bombCount - 1;
         }
     }
 
@@ -77,6 +98,12 @@ public class PlayerController1 : MonoBehaviour {
             HP = 0;
             this.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(0, 5), 0, Random.Range(0, 5)) * 250);
         }
+
+        if (other.gameObject.CompareTag("ammo"))
+        {
+            bombCount = bombCount + 1;
+            Destroy(other.gameObject);
+        }
     }
 
     IEnumerator Die()
@@ -86,19 +113,16 @@ public class PlayerController1 : MonoBehaviour {
             FindObjectOfType<GameController>().wins2++;
             hasCounted = true;
         }
-        canBomb = false;
         rg.isKinematic = true;
         canMove = false;
         model.SetActive(false);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         transform.position = new Vector3(-0.9099998f, 0.5f, -5.56f);
         HP = MaxHP;
-        yield return new WaitForSeconds(1);
         model.SetActive(true);
         canMove = true;
         rg.isKinematic = false;
         hasCounted = false;
-        canBomb = true;
     }
 
     IEnumerator Bomb()

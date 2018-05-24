@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerController2 : MonoBehaviour {
+public class PlayerController2 : MonoBehaviour
+{
 
     public GameObject explosionSphere;
     public GameObject bomb;
-
 
     public float MaxHP;
     float HP;
@@ -18,20 +19,28 @@ public class PlayerController2 : MonoBehaviour {
     public GameObject model;
 
     bool hasCounted;
-
     bool canBomb;
+    bool candrop;
+
+    public int bombCount = 5;
+
+    public Text bombText;
 
 
-    void Start() {
+    void Start()
+    {
         HP = MaxHP;
         canMove = true;
         canBomb = true;
+        candrop = true;
     }
-    void Update() {
+    void Update()
+    {
+
+        bombText.text = "BOMBS: " + bombCount.ToString();
 
         SuicideBomb();
         DropBomb();
-
 
         if (HP <= 0)
         {
@@ -42,11 +51,21 @@ public class PlayerController2 : MonoBehaviour {
         {
             rg.isKinematic = true;
         }
-
         else if (FindObjectOfType<GameController>().isPaused == false)
         {
             rg.isKinematic = false;
         }
+
+        if (bombCount <= 0)
+        {
+            candrop = false;
+        }
+
+        if (bombCount >= 0)
+        {
+            candrop = true;
+        }
+
     }
 
     public void SuicideBomb()
@@ -54,14 +73,16 @@ public class PlayerController2 : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Keypad0) && canMove && canBomb)
         {
             StartCoroutine(explode());
+            canBomb = false;
         }
     }
 
     public void DropBomb()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad1) && canMove && canBomb)
+        if (Input.GetKeyDown(KeyCode.Keypad1) && canMove && candrop)
         {
             StartCoroutine(Bomb());
+            bombCount = bombCount - 1;
         }
     }
 
@@ -80,6 +101,12 @@ public class PlayerController2 : MonoBehaviour {
             HP = 0;
             this.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(0, 5), 0, Random.Range(0, 5)) * 250);
         }
+
+        if (other.gameObject.CompareTag("ammo"))
+        {
+            bombCount = bombCount + 1;
+            Destroy(other.gameObject);
+        }
     }
 
     IEnumerator Die()
@@ -89,26 +116,26 @@ public class PlayerController2 : MonoBehaviour {
             FindObjectOfType<GameController>().wins1++;
             hasCounted = true;
         }
-        canBomb = false;
         rg.isKinematic = true;
         canMove = false;
         model.SetActive(false);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         transform.position = new Vector3(5.09f, 0.5f, -5.56f);
         HP = MaxHP;
-        yield return new WaitForSeconds(1);
         model.SetActive(true);
         canMove = true;
         rg.isKinematic = false;
         hasCounted = false;
-        canBomb = true;
     }
 
     IEnumerator Bomb()
     {
+        GameObject SphereInstance;
         GameObject BombInstance;
         BombInstance = Instantiate(bomb, transform.position + new Vector3(0, 1, 0), transform.rotation);
         yield return new WaitForSeconds(1);
-        Instantiate(explosionSphere, BombInstance.transform.position, BombInstance.transform.rotation);
+        SphereInstance = Instantiate(explosionSphere, BombInstance.transform.position, BombInstance.transform.rotation);
+        SphereInstance.transform.SetParent(null);
     }
+
 }
