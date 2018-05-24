@@ -7,7 +7,6 @@ TagManager:
   - explosion
   - Player1
   - Player2
-  - ammo
   layers:
   - Default
   - TransparentFX
