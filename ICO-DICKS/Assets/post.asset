@@ -40,7 +40,7 @@ MonoBehaviour:
         stationaryBlending: 0.95
         motionBlending: 0.85
   ambientOcclusion:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       intensity: 1
       radius: 0.3
@@ -113,15 +113,15 @@ MonoBehaviour:
     m_Settings:
       tonemapping:
         tonemapper: 2
-        neutralBlackIn: 0.077
-        neutralWhiteIn: 18
-        neutralBlackOut: 0.002
-        neutralWhiteOut: 12.9
+        neutralBlackIn: 0.084
+        neutralWhiteIn: 16.7
+        neutralBlackOut: -0
+        neutralWhiteOut: 16.3
         neutralWhiteLevel: 6.6
         neutralWhiteClip: 10
       basic:
         postExposure: 0
-        temperature: 44
+        temperature: 50
         tint: 9
         hueShift: 0
         saturation: 1.04
@@ -308,7 +308,7 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0
+      intensity: 0.226
   grain:
     m_Enabled: 0
     m_Settings:
